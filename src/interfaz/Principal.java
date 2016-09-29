@@ -21,6 +21,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion};
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }
 
     /**
@@ -49,6 +54,7 @@ public class Principal extends javax.swing.JFrame {
         tblTablaResultado = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaInicial = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +148,10 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 400, 180));
 
+        jLabel1.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        jLabel1.setText("Operaciones Matrices");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,36 +178,37 @@ public class Principal extends javax.swing.JFrame {
             Helper.mensaje(this, "Por favor digite el numero de Columnas", 2);
             txtNcolumnas1.requestFocusInWindow();
             sw = 0;
-        } 
+        }
         if (sw == 1) {
 
             int nf, nc;
             DefaultTableModel tm, tm2;
             nf = Integer.parseInt(txtNfilas1.getText());
             nc = Integer.parseInt(txtNcolumnas1.getText());
+
+            if (nf > 15 ) {
+                Helper.mensaje(this, "Para una correcta vizualizacion el numero de fila no debe ser mayor de 15", 2);
+                txtNfilas1.requestFocusInWindow();
+            }else if ( nc > 15){
+               Helper.mensaje(this, "Para una correcta vizualizacion el numero de columnas no debe ser mayor de 15", 2);
+                txtNcolumnas1.requestFocusInWindow(); 
+} else {
+                tm = (DefaultTableModel) tblTablaInicial.getModel();
+                tm2 = (DefaultTableModel) tblTablaResultado.getModel();
+
+                tm.setRowCount(nf);
+                tm.setColumnCount(nc);
+
+                tm2.setRowCount(nf);
+                tm2.setColumnCount(nc);
+
+                JButton botonesH[] = {cmdManual, cmdAutomatic, cmdLimpiar};
+                JButton botonesD[] = {cmdCrear, cmdOperacion};
+
+                Helper.habilitarBotones(botonesH);
+                Helper.deshabilitarBotones(botonesD);
             
-            if(nf>15 && nc>15){
-            Helper.mensaje(this, "Para una correctaa vizualizacion el numero de fila no debe ser mayor de 15", 2);
-            txtNfilas1.requestFocusInWindow();    
-            
-
-            tm = (DefaultTableModel) tblTablaInicial.getModel();
-            tm2 = (DefaultTableModel) tblTablaResultado.getModel();
-
-            tm.setRowCount(nf);
-            tm.setColumnCount(nc);
-
-            tm2.setRowCount(nf);
-            tm2.setColumnCount(nc);
-
-            JButton botonesH[] = {cmdManual, cmdAutomatic, cmdLimpiar};
-            JButton botonesD[] = {cmdCrear, cmdOperacion};
-
-            Helper.habilitarBotones(botonesH);
-            Helper.deshabilitarBotones(botonesD);
-            } else {
-                Helper.mensaje(this, "Para una correctaa vizualizacion el numero de columas no debe ser mayor de 15", 2);
-            txtNcolumnas1.requestFocusInWindow();
+               
             }
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
@@ -376,6 +387,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdManual;
     private javax.swing.JButton cmdOperacion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
