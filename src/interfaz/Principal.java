@@ -229,73 +229,87 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdOperacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOperacionActionPerformed
-        int op, nf, nc, aux, cont = 0;
+        int op, nf, nc;
         op = cmbOperaciones.getSelectedIndex();
         Helper.limpiadoTabla(tblTablaResultado);
 
         nf = tblTablaInicial.getRowCount();
         nc = tblTablaInicial.getColumnCount();
+        if (nf < 5 || nc < 5) {
+            Helper.mensaje(this, "Para poder hacer las operaciones el numero de columnas debes ser superior a 5", 2);
+            JButton botonesH[] = {cmdLimpiar};
+            JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion, cmdCrear};
 
-        switch (op) {
+            Helper.habilitarBotones(botonesH);
+            Helper.deshabilitarBotones(botonesD);
 
-            case 0:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
-                } else {
-                    Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-            case 1:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+        } else {
+            switch (op) {
 
-                } else {
-                    Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-            case 2:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
-                }else{
-                Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-            case 3:
-                Helper.transpuesta(tblTablaInicial, tblTablaResultado);
-                break;
-            case 4:
-                Helper.letraA(tblTablaInicial, tblTablaResultado);
-                break;
-            case 5:
-                Helper.letraZ(tblTablaInicial, tblTablaResultado);
-                break;
-            case 6:
-                Helper.letraV(tblTablaInicial, tblTablaResultado);
-                break;
-            case 7:
-                Helper.letraT(tblTablaInicial, tblTablaResultado);
-                break;
-            case 8:
-                Helper.letraE(tblTablaInicial, tblTablaResultado);
-                break;
-            case 9:
-                Helper.letraF(tblTablaInicial, tblTablaResultado);
-                break;
-            case 10:
-                Helper.letraP(tblTablaInicial, tblTablaResultado);
-                break;
-            case 11:
-                Helper.letraI(tblTablaInicial, tblTablaResultado);
-                break;
-            case 12:
-                Helper.letraN(tblTablaInicial, tblTablaResultado);
-                break;
-            case 13:
-                Helper.letraY(tblTablaInicial, tblTablaResultado);
-                break;
-            case 14:
-                Helper.letraX(tblTablaInicial, tblTablaResultado);
-                break;
+                case 0:
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                    } else {
+                        Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                    }
+                    break;
+                case 1:
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+
+                    } else {
+                        Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                    }
+                    break;
+                case 2:
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                    } else {
+                        Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
+                    }
+                    break;
+                case 3:
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                    } else {
+                        Helper.transpuesta(tblTablaInicial, tblTablaResultado);
+                    }
+
+                    break;
+                case 4:
+                    Helper.letraA(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 5:
+                    Helper.letraZ(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 6:
+                    Helper.letraV(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 7:
+                    Helper.letraT(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 8:
+                    Helper.letraE(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 9:
+                    Helper.letraF(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 10:
+                    Helper.letraP(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 11:
+                    Helper.letraI(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 12:
+                    Helper.letraN(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 13:
+                    Helper.letraY(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 14:
+                    Helper.letraX(tblTablaInicial, tblTablaResultado);
+                    break;
+            }
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
