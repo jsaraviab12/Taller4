@@ -159,38 +159,46 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
         int sw;
-        sw=1;
-        if(txtNfilas1.getText().isEmpty()){
-         Helper.mensaje(this,"Por favor digite el numero de Filas",4);
-         txtNfilas1.requestFocusInWindow();
-         sw=0;
-        }else if( txtNcolumnas1.getText().isEmpty()){
-         Helper.mensaje(this,"Por favor digite el numero de filas",2);
-         txtNcolumnas1.requestFocusInWindow();
-         sw=0;
-        }
-        if(sw==1){
+        sw = 1;
+        if (txtNfilas1.getText().isEmpty()) {
+            Helper.mensaje(this, "Por favor digite el numero de Filas", 2);
+            txtNfilas1.requestFocusInWindow();
+            sw = 0;
+        } else if (txtNcolumnas1.getText().isEmpty()) {
+            Helper.mensaje(this, "Por favor digite el numero de Columnas", 2);
+            txtNcolumnas1.requestFocusInWindow();
+            sw = 0;
+        } 
+        if (sw == 1) {
+
+            int nf, nc;
+            DefaultTableModel tm, tm2;
+            nf = Integer.parseInt(txtNfilas1.getText());
+            nc = Integer.parseInt(txtNcolumnas1.getText());
             
-        
-        int nf, nc;
-        DefaultTableModel tm, tm2;
-        nf = Integer.parseInt(txtNfilas1.getText());
-        nc = Integer.parseInt(txtNcolumnas1.getText());
+            if(nf>15 && nc>15){
+            Helper.mensaje(this, "Para una correctaa vizualizacion el numero de fila no debe ser mayor de 15", 2);
+            txtNfilas1.requestFocusInWindow();    
+            
 
-        tm = (DefaultTableModel) tblTablaInicial.getModel();
-        tm2 = (DefaultTableModel) tblTablaResultado.getModel();
+            tm = (DefaultTableModel) tblTablaInicial.getModel();
+            tm2 = (DefaultTableModel) tblTablaResultado.getModel();
 
-        tm.setRowCount(nf);
-        tm.setColumnCount(nc);
+            tm.setRowCount(nf);
+            tm.setColumnCount(nc);
 
-        tm2.setRowCount(nf);
-        tm2.setColumnCount(nc);
+            tm2.setRowCount(nf);
+            tm2.setColumnCount(nc);
 
-        JButton botonesH[] = {cmdManual, cmdAutomatic, cmdLimpiar};
-        JButton botonesD[] = {cmdCrear, cmdOperacion};
+            JButton botonesH[] = {cmdManual, cmdAutomatic, cmdLimpiar};
+            JButton botonesD[] = {cmdCrear, cmdOperacion};
 
-        Helper.habilitarBotones(botonesH);
-        Helper.deshabilitarBotones(botonesD);
+            Helper.habilitarBotones(botonesH);
+            Helper.deshabilitarBotones(botonesD);
+            } else {
+                Helper.mensaje(this, "Para una correctaa vizualizacion el numero de columas no debe ser mayor de 15", 2);
+            txtNcolumnas1.requestFocusInWindow();
+            }
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
@@ -220,50 +228,50 @@ public class Principal extends javax.swing.JFrame {
 
         switch (op) {
             case 0:
-            Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                break;
             case 1:
-            Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                break;
             case 2:
-            Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
+                break;
             case 3:
-            Helper.transpuesta(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.transpuesta(tblTablaInicial, tblTablaResultado);
+                break;
             case 4:
-            Helper.letraA(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.letraA(tblTablaInicial, tblTablaResultado);
+                break;
             case 5:
-            Helper.letraZ(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.letraZ(tblTablaInicial, tblTablaResultado);
+                break;
             case 6:
-            Helper.letraV(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.letraV(tblTablaInicial, tblTablaResultado);
+                break;
             case 7:
-            Helper.letraT(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.letraT(tblTablaInicial, tblTablaResultado);
+                break;
             case 8:
-            Helper.letraE(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraE(tblTablaInicial, tblTablaResultado);
+                break;
             case 9:
-            Helper.letraF(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.letraF(tblTablaInicial, tblTablaResultado);
+                break;
             case 10:
-            Helper.letraP(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraP(tblTablaInicial, tblTablaResultado);
+                break;
             case 11:
-            Helper.letraI(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraI(tblTablaInicial, tblTablaResultado);
+                break;
             case 12:
-            Helper.letraN(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraN(tblTablaInicial, tblTablaResultado);
+                break;
             case 13:
-            Helper.letraY(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraY(tblTablaInicial, tblTablaResultado);
+                break;
             case 14:
-            Helper.letraX(tblTablaInicial, tblTablaResultado);
-            break; 
+                Helper.letraX(tblTablaInicial, tblTablaResultado);
+                break;
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
