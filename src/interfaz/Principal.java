@@ -186,13 +186,13 @@ public class Principal extends javax.swing.JFrame {
             nf = Integer.parseInt(txtNfilas1.getText());
             nc = Integer.parseInt(txtNcolumnas1.getText());
 
-            if (nf > 15 ) {
+            if (nf > 15) {
                 Helper.mensaje(this, "Para una correcta vizualizacion el numero de fila no debe ser mayor de 15", 2);
                 txtNfilas1.requestFocusInWindow();
-            }else if ( nc > 15){
-               Helper.mensaje(this, "Para una correcta vizualizacion el numero de columnas no debe ser mayor de 15", 2);
-                txtNcolumnas1.requestFocusInWindow(); 
-} else {
+            } else if (nc > 15) {
+                Helper.mensaje(this, "Para una correcta vizualizacion el numero de columnas no debe ser mayor de 15", 2);
+                txtNcolumnas1.requestFocusInWindow();
+            } else {
                 tm = (DefaultTableModel) tblTablaInicial.getModel();
                 tm2 = (DefaultTableModel) tblTablaResultado.getModel();
 
@@ -207,8 +207,7 @@ public class Principal extends javax.swing.JFrame {
 
                 Helper.habilitarBotones(botonesH);
                 Helper.deshabilitarBotones(botonesD);
-            
-               
+
             }
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
@@ -238,14 +237,28 @@ public class Principal extends javax.swing.JFrame {
         nc = tblTablaInicial.getColumnCount();
 
         switch (op) {
+
             case 0:
-                Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                } else {
+                    Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 1:
-                Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+
+                } else {
+                    Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 2:
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                }else{
                 Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 3:
                 Helper.transpuesta(tblTablaInicial, tblTablaResultado);
