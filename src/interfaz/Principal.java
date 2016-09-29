@@ -68,7 +68,19 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel5.setText("Numero de columnas: ");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        txtNfilas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNfilas1KeyTyped(evt);
+            }
+        });
         jPanel3.add(txtNfilas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 30, -1));
+
+        txtNcolumnas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNcolumnas1KeyTyped(evt);
+            }
+        });
         jPanel3.add(txtNcolumnas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 30, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 230, 100));
@@ -87,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdCrearActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 80, -1));
+        jPanel2.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 80, -1));
 
         cmdLimpiar.setForeground(new java.awt.Color(102, 0, 0));
         cmdLimpiar.setText("Limpiar");
@@ -96,7 +108,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 70, -1));
+        jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 70, -1));
 
         cmdOperacion.setText("Operacion");
         cmdOperacion.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +124,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdAutomaticActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdAutomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, -1));
+        jPanel2.add(cmdAutomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 90, -1));
 
         cmdManual.setText("Manual");
         cmdManual.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdManualActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 60, 90, -1));
+        jPanel2.add(cmdManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 90, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 330, 140));
 
@@ -209,6 +221,8 @@ public class Principal extends javax.swing.JFrame {
                 Helper.deshabilitarBotones(botonesD);
 
             }
+            txtNcolumnas1.setEditable(false);
+            txtNfilas1.setEditable(false);
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
@@ -226,6 +240,8 @@ public class Principal extends javax.swing.JFrame {
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
+        txtNcolumnas1.setEditable(true);
+        txtNfilas1.setEditable(true);
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdOperacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOperacionActionPerformed
@@ -372,9 +388,29 @@ public class Principal extends javax.swing.JFrame {
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdManualActionPerformed
 
+    private void txtNfilas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNfilas1KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNfilas1KeyTyped
+
+    private void txtNcolumnas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNcolumnas1KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNcolumnas1KeyTyped
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
