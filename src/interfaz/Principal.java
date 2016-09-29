@@ -158,6 +158,20 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int sw;
+        sw=1;
+        if(txtNfilas1.getText().isEmpty()){
+         Helper.mensaje(this,"Por favor digite el numero de Filas",4);
+         txtNfilas1.requestFocusInWindow();
+         sw=0;
+        }else if( txtNcolumnas1.getText().isEmpty()){
+         Helper.mensaje(this,"Por favor digite el numero de filas",2);
+         txtNcolumnas1.requestFocusInWindow();
+         sw=0;
+        }
+        if(sw==1){
+            
+        
         int nf, nc;
         DefaultTableModel tm, tm2;
         nf = Integer.parseInt(txtNfilas1.getText());
@@ -177,6 +191,7 @@ public class Principal extends javax.swing.JFrame {
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
+        }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
