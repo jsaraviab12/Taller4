@@ -293,37 +293,85 @@ public class Principal extends javax.swing.JFrame {
 
                     break;
                 case 4:
-                    Helper.letraA(tblTablaInicial, tblTablaResultado);
+                    if (nf == nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraA(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 5:
-                    Helper.letraZ(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else if (nf % 2 == 0) {
+                        Helper.letraZ(tblTablaInicial, tblTablaResultado);
+
+                    } else {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser pares", 3);
+                    }
                     break;
+
                 case 6:
                     Helper.letraV(tblTablaInicial, tblTablaResultado);
                     break;
                 case 7:
-                    Helper.letraT(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else if ((nc % 2) == 0) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", 3);
+                    } else {
+                        Helper.letraT(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
+
                 case 8:
-                    Helper.letraE(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraE(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
+
                 case 9:
-                    Helper.letraF(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraF(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 10:
-                    Helper.letraP(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraP(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 11:
-                    Helper.letraI(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraI(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 12:
-                    Helper.letraN(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraN(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 13:
-                    Helper.letraY(tblTablaInicial, tblTablaResultado);
+                    if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraY(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 14:
-                    Helper.letraX(tblTablaInicial, tblTablaResultado);
+                    if (nf == nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else {
+                        Helper.letraX(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
             }
         }
@@ -422,16 +470,24 @@ public class Principal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
