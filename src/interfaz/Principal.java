@@ -372,6 +372,7 @@ public class Principal extends javax.swing.JFrame {
                     } else {
                         Helper.letraX(tblTablaInicial, tblTablaResultado);
                     }
+                    
                     break;
             }
         }
