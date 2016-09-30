@@ -85,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 230, 100));
 
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Segundaria", "Triangualar Superior", "Triangular Inferior\t", "Transpuesta a la ingresada", "Letra A", "Letra Z", "Letra V", "Letra T", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Segundaria", "Triangualar Superior", "Triangular Inferior\t", "Transpuesta a la ingresada", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
         jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 160, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos iniciales "));
@@ -251,8 +251,8 @@ public class Principal extends javax.swing.JFrame {
 
         nf = tblTablaInicial.getRowCount();
         nc = tblTablaInicial.getColumnCount();
-        if (nf < 5 || nc < 5) {
-            Helper.mensaje(this, "Para poder hacer las operaciones el numero de columnas debes ser superior a 5", 2);
+        if (nf < 8 || nc < 8) {
+            Helper.mensaje(this, "Para poder hacer las operaciones el numero de columnas debes ser superior a 8", 2);
             JButton botonesH[] = {cmdLimpiar};
             JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion, cmdCrear};
 
@@ -311,7 +311,13 @@ public class Principal extends javax.swing.JFrame {
                     break;
 
                 case 6:
-                    Helper.letraV(tblTablaInicial, tblTablaResultado);
+                     if (nc == nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    }else if(nc %2 == 0){
+                      Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", op);
+                    }else{
+                    Helper.letraT(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 7:
                     if (nc == nf) {
@@ -319,7 +325,7 @@ public class Principal extends javax.swing.JFrame {
                     } else if ((nc % 2) == 0) {
                         Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", 3);
                     } else {
-                        Helper.letraT(tblTablaInicial, tblTablaResultado);
+                        Helper.letraV(tblTablaInicial, tblTablaResultado);
                     }
                     break;
 
@@ -348,6 +354,8 @@ public class Principal extends javax.swing.JFrame {
                 case 11:
                     if (nc == nf) {
                         Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    } else if ((nc % 2) == 0) {
+                        Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", 3);
                     } else {
                         Helper.letraI(tblTablaInicial, tblTablaResultado);
                     }
@@ -355,6 +363,8 @@ public class Principal extends javax.swing.JFrame {
                 case 12:
                     if (nc == nf) {
                         Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    }else if(nc%2 == 0 && nf %2 ==0){
+                        Helper.mensaje(this,"Para esta operacion el numero de columnas y filas no pueden ser par al tiempo",3);
                     } else {
                         Helper.letraN(tblTablaInicial, tblTablaResultado);
                     }
@@ -362,6 +372,8 @@ public class Principal extends javax.swing.JFrame {
                 case 13:
                     if (nc == nf) {
                         Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    }else if(nc %2 == 0 && nf != 0 ){
+                       Helper.mensaje(this, "Para esta operacio el numero de columnas debe ser impar y el de filas par", 3);
                     } else {
                         Helper.letraY(tblTablaInicial, tblTablaResultado);
                     }
@@ -369,10 +381,15 @@ public class Principal extends javax.swing.JFrame {
                 case 14:
                     if (nf == nc) {
                         Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
+                    }else if(nc%2 ==0 && nf%2==0){
+                      Helper.mensaje(this,"Para esta operacio el numero de columnas y filas no deben ser par al mismo tiempo",3);
+                    }else if (nc%2 !=0 && nf%2!=0){
+                      Helper.mensaje(this,"Para esta operacio el numero de columnas y filas no deben ser impar al mismo tiempo",3);
+
                     } else {
                         Helper.letraX(tblTablaInicial, tblTablaResultado);
                     }
-                    
+
                     break;
             }
         }
